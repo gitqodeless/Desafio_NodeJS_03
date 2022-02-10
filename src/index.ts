@@ -39,5 +39,22 @@ app.listen(PORT, () => {
 
 	// CÓDIGO PARA ATENDER OS REQUERIMENTOS
 	// R01, R02, R03, R04, R05
-	
+
+	const readline = require('readline-sync');
+
+	let qntAlunos = parseInt(readline.question('Quantos alunos deseja informar? '))
+
+	let maiorNota = 0;
+	let nomeMaiorNota = '';
+
+	for(let i = 0; i < qntAlunos; i++){
+		let nome = readline.question('Informe o nome do aluno: ')
+		let nota = parseInt(readline.question('Informe a nota do aluno: '))
+
+		if(nota > maiorNota) {
+			maiorNota = nota
+			nomeMaiorNota = nome
+		}
+	}
+	console.log(`A maior nota foi ${maiorNota}, do ubuntu ${nomeMaiorNota}`)
 });
